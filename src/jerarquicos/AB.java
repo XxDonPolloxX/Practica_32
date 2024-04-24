@@ -36,8 +36,9 @@ public class AB <E>{
             res += nodo.getDato().toString();
             res += listadoInOrdenConverso(nodo.getIzq());
         }
-        
         return res;
     }
 
+
+    
 }
