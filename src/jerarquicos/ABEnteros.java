@@ -6,6 +6,9 @@ public class ABEnteros<Integer> extends AB{
     }
     public boolean comprobarSumas(){
         int sumaDer, sumaIzq;
+        if(raiz==null){
+            return true;
+        }
         if(raiz.getDer()==null){
             sumaDer=0;
         }
@@ -81,4 +84,26 @@ public class ABEnteros<Integer> extends AB{
         }
         return menor;
     }
+    public int sumaNodosNiveles(int K1, int K2){
+        int suma=0;
+        if(esVacio()){
+            return 0;
+        }
+        suma += sumaNodosNiveles(K1, K2, raiz.getDer(), 1);
+        suma += sumaNodosNiveles(K1, K2, raiz.getIzq(), 1);
+        return suma;
+    }
+    private int sumaNodosNiveles(int K1, int K2, NodoAB<Integer> nodo, int K){
+        int suma=0;
+        if(nodo==null){
+            return 0;
+        }
+        if(K>=K1 && K<=K2){
+            K++;
+            suma = (int)nodo.getDato();
+            suma+=sumaNodosNiveles(K1, K2, nodo.getDer(), K) + sumaNodosNiveles(K1, K2, nodo.getIzq(), K);
+        }
+        return suma;
+    }
+
 }

@@ -5,6 +5,14 @@ public class AB <E>{
     public AB(NodoAB<E> raiz){
         this.raiz=raiz;
     }
+    public boolean esVacio(){
+        if(raiz==null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     public String listadoInOrden(){
         if(raiz==null){
@@ -90,6 +98,26 @@ public class AB <E>{
         }
         res+=nodo.getDato().toString() + " ";
         return res;
+    }
+    public void vaciarArbolSinRecorrer(){
+        raiz=null;
+    }
+    public void vaciarArbolRecorriendo(){
+        vaciarArbolRecorriendo(raiz.getDer());
+        vaciarArbolRecorriendo(raiz.getIzq());
+        raiz.setDer(null);
+        raiz.setIzq(null);
+        raiz=null;
+    }
+    public void vaciarArbolRecorriendo(NodoAB<E> nodo){
+        if(nodo.getDer()!=null){
+            vaciarArbolRecorriendo(nodo.getDer());
+        }
+        if(nodo.getIzq()!=null){
+            vaciarArbolRecorriendo(nodo.getIzq());
+        }
+        nodo.setIzq(null);
+        nodo.setDer(null);
     }
 
 

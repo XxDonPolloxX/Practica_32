@@ -26,4 +26,10 @@ public class NodoAB<E> {
     public int getTamanyo() {
         return tamanyo;
     }
+    public void setIzq(NodoAB<E> n){
+        izq=n;
+    }
+    public void setDer(NodoAB<E> n){
+        der=n;
+    }
 }
