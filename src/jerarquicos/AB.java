@@ -5,4 +5,9 @@ public class AB <E>{
     public AB(NodoAB<E> raiz){
         this.raiz=raiz;
     }
+    public String listadoPreOrden(NodoAB<E> nodo){
+        String res;
+        if()
+        return res;
+    }
 }
