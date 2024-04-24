@@ -4,11 +4,12 @@ import jerarquicos.NodoAB;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        NodoAB<Integer> p, a, c, o;
+        NodoAB<Integer> p, a, c, o, d;
         p= new NodoAB<Integer>(null,null, 3);
         a = new NodoAB<Integer>(p, null, 5);
         c= new NodoAB<Integer>(null, a, 9);
-        o= new NodoAB<Integer>(null, c, 10);
+        d= new NodoAB<Integer>(null, null, -2);
+        o= new NodoAB<Integer>(d, c, 10);
         System.out.println(o.getTamanyo());
 
     }
