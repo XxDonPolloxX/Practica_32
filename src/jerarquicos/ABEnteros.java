@@ -69,24 +69,18 @@ public class ABEnteros<Integer> extends AB{
         }
         return comprobarClavePequenia(raiz);
     }
-    private boolean comprobarClavePequenia(NodoAB<Integer> nodo){
-        while (nodo != null){
-            if (nodo.getIzq() != null) {
-                if ((int) nodo.getDato() > (int) nodo.getIzq().getDato()) {
-                    return false;
-                }
-            }
-            if (nodo.getDer() != null) {
-                if ((int) nodo.getDato() > (int) nodo.getDer().getDato()) {
-                    return false;
-                }
-            }
-            if (nodo.getIzq() != null && nodo.getDer() != null) {
-                if (comprobarClavePequenia(nodo.getIzq()) && comprobarClavePequenia(nodo.getDer())) {
-                    return false;
-                }
-            }
+    private boolean comprobarClavePequenia(NodoAB<Integer> nodo) {
+        if (nodo == null) {
+            return true;
         }
+        if (nodo.getIzq() != null && (int) nodo.getDato() > (int) nodo.getIzq().getDato()) {
+            return false;
+        }
+
+        if (nodo.getDer() != null && (int) nodo.getDato() > (int) nodo.getDer().getDato()) {
+            return false;
+        }
+        return comprobarClavePequenia(nodo.getIzq()) && comprobarClavePequenia(nodo.getDer());
     }
     public int sumaNodosNiveles(int K1, int K2){
         int suma=0;
