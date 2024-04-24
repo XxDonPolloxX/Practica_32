@@ -14,7 +14,5 @@ public class Main {
         AB<Integer> arbol = new AB<Integer>(o);
         System.out.println(o.getTamanyo());
         System.out.println(arbol.listadoInOrden());
-        System.out.println(arbol.listadoInOrdenConverso());
-
     }
 }
