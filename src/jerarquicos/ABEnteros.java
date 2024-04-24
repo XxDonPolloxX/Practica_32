@@ -59,4 +59,26 @@ public class ABEnteros<Integer> extends AB{
         }
         return suma;
     }
+
+    public boolean comprobarClavePequenia(){
+        if(raiz == null){
+            return true;
+        }
+        return comprobarClavePequenia(raiz);
+    }
+    private boolean comprobarClavePequenia(NodoAB<Integer> nodo){
+        boolean menor = false;
+        if(nodo != null){
+            if ((int)nodo.getDato() < (int)nodo.getIzq().getDato()){
+                menor = true;
+            }
+            if ((int)nodo.getDato() < (int)nodo.getDer().getDato()){
+                menor = true;
+            }
+            if (comprobarClavePequenia(nodo.getIzq()) && comprobarClavePequenia(nodo.getDer())){
+                menor = true;
+            }
+        }
+        return menor;
+    }
 }

@@ -1,4 +1,5 @@
 import jerarquicos.AB;
+import jerarquicos.ABEnteros;
 import jerarquicos.NodoAB;
 
 public class Main {
@@ -10,7 +11,7 @@ public class Main {
         p = new NodoAB<Integer>(null, null, 7);
         c = new NodoAB<Integer>(d, p, 6);
         o= new NodoAB<Integer>(c, a, 2);
-        AB<Integer> arbol = new AB<Integer>(o);
-        System.out.println(arbol.listadoInOrden());
+        ABEnteros<Integer> arbol = new ABEnteros<Integer>(o);
+        System.out.println(arbol.comprobarClavePequenia());
     }
 }
