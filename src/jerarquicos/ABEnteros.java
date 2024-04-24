@@ -4,27 +4,59 @@ public class ABEnteros<Integer> extends AB{
     public ABEnteros(NodoAB raiz) {
         super(raiz);
     }
-
-    public boolean comprobarSumas(NodoAB<Integer> nodo){
+    public boolean comprobarSumas(){
         int sumaDer, sumaIzq;
+        if(raiz.getDer()==null){
+            sumaDer=0;
+        }
+        else{sumaDer=sumarArboles(raiz.getDer());}
+        if(raiz.getIzq()==null){
+            sumaIzq=0;
+        }
+        else{sumaIzq=sumarArboles(raiz.getIzq());}
+        if(raiz.getDer()==null && raiz.getIzq()==null){
+            return true;
+        }
+        if(sumaIzq==sumaDer && comprobarSumas(raiz.getDer()) && comprobarSumas(raiz.getIzq())){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    private boolean comprobarSumas(NodoAB<Integer> nodo){
+        int sumaDer, sumaIzq;
+        if(nodo==null){
+            return true;
+        }
+        if(nodo.getDer()==null){
+            sumaDer=0;
+        }
+        else{sumaDer=sumarArboles(nodo.getDer());}
+        if(nodo.getIzq()==null){
+            sumaIzq=0;
+        }
+        else{sumaIzq=sumarArboles(nodo.getIzq());}
+        if(nodo.getDer()==null && nodo.getIzq()==null){
+            return true;
+        }
+        if(sumaIzq==sumaDer && comprobarSumas(nodo.getDer()) && comprobarSumas(nodo.getIzq())){
+            return true;
+        }
+        else {
+            return false;
+        }
 
     }
     public int sumarArboles(NodoAB<Integer> nodo){
-
-    }
-
-    public boolean comprobarClavePequeña(){
-        if(raiz == null){
-            return true;
+        int suma;
+        suma= (int) nodo.getDato();
+        if(nodo.getIzq()!=null){
+            suma+=sumarArboles(nodo.getIzq());
         }
-        return comprobarClavePequeña(raiz);
-    }
-    private boolean comprobarClavePequeña(NodoAB<Integer> nodo){
-        boolean menor = true;
-        if(nodo != null){
-           //if (nodo.getIzq().getDato() < nodo.getDato()){
-
-           }
+        if(nodo.getDer()!=null){
+            suma+=sumarArboles(nodo.getDer());
         }
+        return suma;
     }
 }
