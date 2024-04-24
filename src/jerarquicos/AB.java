@@ -16,28 +16,29 @@ public class AB <E>{
         String res = "";
         if(nodo != null){
             res = listadoInOrden(nodo.getIzq());
-            res += nodo.getDato().toString();
+            res += nodo.getDato().toString() + " ";
             res += listadoInOrden(nodo.getDer());
         }
         return res;
     }
 
     public String listadoInOrdenConverso(){
-        if (raiz != null){
+        if (raiz == null){
             return "";
         }
         return listadoInOrdenConverso(raiz);
     }
 
     private String listadoInOrdenConverso(NodoAB<E> nodo){
-        String res = null;
-        if (nodo != null){
+        String res = "";
+        if(nodo != null){
             res = listadoInOrdenConverso(nodo.getDer());
-            res += nodo.getDato().toString();
+            res += nodo.getDato().toString() + " ";
             res += listadoInOrdenConverso(nodo.getIzq());
         }
         return res;
     }
+
     public String listadoPreOrden(){
         String res;
         if(raiz==null){
