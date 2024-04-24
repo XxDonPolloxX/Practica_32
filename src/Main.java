@@ -12,7 +12,6 @@ public class Main {
         d= new NodoAB<Integer>(null, null, -2);
         o= new NodoAB<Integer>(d, c, 10);
         AB<Integer> arbol = new AB<Integer>(o);
-        System.out.println(o.getTamanyo());
         System.out.println(arbol.listadoInOrden());
     }
 }

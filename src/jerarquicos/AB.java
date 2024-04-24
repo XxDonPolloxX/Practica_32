@@ -13,7 +13,7 @@ public class AB <E>{
         return listadoInOrden(raiz);
     }
     private String listadoInOrden(NodoAB<E> nodo){
-        String res = null;
+        String res = "";
         if(nodo != null){
             res = listadoInOrden(nodo.getIzq());
             res += nodo.getDato().toString();
@@ -40,5 +40,5 @@ public class AB <E>{
     }
 
 
-    
+
 }
