@@ -14,6 +14,10 @@ public class AB <E>{
         }
     }
 
+    public NodoAB<E> getRaiz() {
+        return raiz;
+    }
+
     public String listadoInOrden(){
         if(raiz==null){
             return "";
