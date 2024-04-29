@@ -103,9 +103,11 @@ public class ABEnteros<Integer> extends AB{
         if(nodo==null){
             return 0;
         }
-        if(K>=K1 && K<=K2){
-            K++;
+        if(K == K1 || K == K2){
             suma = (int)nodo.getDato();
+        }
+        if(K < K2) {
+            K++;
             suma+=sumaNodosNiveles(K1, K2, nodo.getDer(), K) + sumaNodosNiveles(K1, K2, nodo.getIzq(), K);
         }
         return suma;
