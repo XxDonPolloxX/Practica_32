@@ -14,10 +14,8 @@ public class Menu {
     public void ejecutar(){
         do{
             sc = new Scanner(System.in);
-            System.out.println("\t\t MENÚ AB de Enteros");
-            System.out.println();
-            System.out.println("1. Crear AB de enteros");
-            System.out.println();
+            System.out.println("\n\t\t MENÚ AB de Enteros\n");
+            System.out.println("1. Crear AB de enteros\n");
             System.out.println("2. Listado de claves en InOrden");
             System.out.println("3. Listado de claves en InOrden Converso");
             System.out.println("4. Listado de claves en PreOrden");
@@ -28,8 +26,7 @@ public class Menu {
             System.out.println("9. Vaciar Árbol Modo 2 (recorriendo todos sus nodos)");
             System.out.println("10. Mostrar ascendientes");
             System.out.println("11. Suma total de nodos entre dos niveles");
-            System.out.println("12. Número de nodos impares que hay en un nivel");
-            System.out.println();
+            System.out.println("12. Número de nodos impares que hay en un nivel\n");
             System.out.println("0. Salir");
             System.out.println("Introduzca una opción:");
             opcion=sc.nextInt();
@@ -122,7 +119,18 @@ public class Menu {
                         AB2.vaciarArbolRecorriendo();
                     }
                     break;
-                //Faltan case 10 y case 12
+                case 10:
+                    System.out.println("Cual es el arbol que desea considerar: 1-AB1, 2-AB2");
+                    opcionArbol=sc.nextInt();
+                    System.out.println("Introduzca la clave del nodo:");
+                    int clave = sc.nextInt();
+                    if(opcionArbol==1){
+                        System.out.println("En el arbol " + "AB" + opcionArbol + " los ascendientes del nodo " + clave + " son: " + AB1.mostrarAscendientes(clave));
+                    }
+                    else{
+                        System.out.println("En el arbol " + "AB" + opcionArbol + " los ascendientes del nodo " + clave + " son: " + AB2.mostrarAscendientes(clave));
+                    }
+                    break;
                 case 11:
                     System.out.println("Cual es el arbol que desea considerar: 1-AB1, 2-AB2");
                     opcionArbol=sc.nextInt();
@@ -131,10 +139,22 @@ public class Menu {
                     System.out.println("Introduzca K2:");
                     int K2 = sc.nextInt();
                     if(opcionArbol==1){
-                        System.out.println(AB1.sumaNodosNiveles(K1, K2));
+                        System.out.println("La suma de elementos enre estos niveles es:" + AB1.sumaNodosNiveles(K1, K2));
                     }
                     else{
-                        System.out.println(AB2.sumaNodosNiveles(K1, K2));
+                        System.out.println("La suma de elementos enre estos niveles es:" + AB2.sumaNodosNiveles(K1, K2));
+                    }
+                    break;
+                case 12:
+                    System.out.println("Cual es el arbol que desea considerar: 1-AB1, 2-AB2");
+                    opcionArbol=sc.nextInt();
+                    System.out.println("Introduzca el nivel:");
+                    int nivel = sc.nextInt();
+                    if(opcionArbol==1){
+                        System.out.println("El numero de nodos impares en el arbol " + "AB" + opcionArbol + " y el nivel " + nivel + " es: " + AB1.numeroNodosImpares(nivel));
+                    }
+                    else{
+                        System.out.println("El numero de nodos impares en el arbol " + "AB" + opcionArbol + " y el nivel " + nivel + " es: " + AB2.numeroNodosImpares(nivel));
                     }
                     break;
                 default:
