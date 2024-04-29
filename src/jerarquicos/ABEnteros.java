@@ -87,8 +87,15 @@ public class ABEnteros<Integer> extends AB{
         if(esVacio()){
             return 0;
         }
-        suma += sumaNodosNiveles(K1, K2, raiz.getDer(), 1);
-        suma += sumaNodosNiveles(K1, K2, raiz.getIzq(), 1);
+        if(K1==0){
+            suma+=(int)raiz.getDato();
+            suma+= sumaNodosNiveles(K1, K2, raiz.getDer(), 1);
+            suma+= sumaNodosNiveles(K1, K2, raiz.getIzq(), 1);
+        }
+        else{
+            suma += sumaNodosNiveles(K1, K2, raiz.getDer(), 1);
+            suma += sumaNodosNiveles(K1, K2, raiz.getIzq(), 1);
+        }
         return + suma;
     }
     private int sumaNodosNiveles(int K1, int K2, NodoAB<Integer> nodo, int K){
