@@ -1,6 +1,8 @@
 package jerarquicos;
 
-public class ABEnteros<Integer> extends AB{
+import modelos.I_ABEnteros;
+
+public class ABEnteros<Integer> extends AB implements I_ABEnteros<Integer> {
     public ABEnteros(NodoAB raiz) {
         super(raiz);
     }

@@ -1,7 +1,12 @@
 package modelos;
 
 public interface I_AB<E> {
-    void insertar();
-    void eliminar();
+    boolean esVacio();
+   String listadoInOrden();
+    String listadoInOrdenConverso();
+    String listadoPreOrden();
+    String listadoPostOrden();
+
+
     
 }

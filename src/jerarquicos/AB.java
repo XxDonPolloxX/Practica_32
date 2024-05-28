@@ -1,6 +1,8 @@
 package jerarquicos;
 
-public class AB <E>{
+import modelos.I_AB;
+
+public class AB <E> implements I_AB<E> {
     protected NodoAB<E> raiz;
     public AB(NodoAB<E> raiz){
         this.raiz=raiz;
@@ -18,13 +20,16 @@ public class AB <E>{
         return raiz;
     }
 
+
     public String listadoInOrden(){
+
         if(raiz==null){
             return "";
         }
         return listadoInOrden(raiz);
     }
-    private String listadoInOrden(NodoAB<E> nodo){
+
+    protected String listadoInOrden(NodoAB<E> nodo){
         String res = "";
         if(nodo != null){
             res = listadoInOrden(nodo.getIzq());
@@ -41,7 +46,7 @@ public class AB <E>{
         return listadoInOrdenConverso(raiz);
     }
 
-    private String listadoInOrdenConverso(NodoAB<E> nodo){
+    protected String listadoInOrdenConverso(NodoAB<E> nodo){
         String res = "";
         if(nodo != null){
             res = listadoInOrdenConverso(nodo.getDer());
@@ -67,7 +72,7 @@ public class AB <E>{
             return res;
         }
     }
-    private String listadoPreOrden(NodoAB<E> nodo){
+    protected String listadoPreOrden(NodoAB<E> nodo){
         String res;
         res= nodo.getDato().toString();
         if(nodo.getIzq()!=null){
@@ -92,7 +97,7 @@ public class AB <E>{
         res+=raiz.getDato().toString();
         return res;
     }
-    private String listadoPostOrden(NodoAB<E> nodo){
+    protected String listadoPostOrden(NodoAB<E> nodo){
         String res="";
         if(nodo.getIzq()!=null){
             res+=listadoPostOrden(nodo.getIzq()) + " ";
